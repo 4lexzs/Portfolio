@@ -1,15 +1,49 @@
-// Warten bis DOM vollständig geladen ist und füge Debug-Hinweise hinzu
+// Warten bis DOM vollständig geladen ist
 document.addEventListener('DOMContentLoaded', function() {
     console.log("DOM geladen - Initialisiere Portfolio...");
     
-    // Verstecke alle Bilder mit alt="Edwin Alexander"
-    const wrongImages = document.querySelectorAll('img[alt="Edwin Alexander"]');
-    wrongImages.forEach(img => {
-        img.style.display = 'none';
+    // Entferne alle störenden Elemente
+    const elementsToCheck = document.querySelectorAll('*');
+    elementsToCheck.forEach(el => {
+        // Bilder mit bestimmten Attributen entfernen
+        if (el.tagName === 'IMG') {
+            if (el.alt === 'Profilbild' || 
+                el.alt === 'Edwin Alexander' || 
+                (el.src && el.src.includes('placeholder') && !el.closest('.project-img'))) {
+                el.style.display = 'none';
+            }
+        }
+        
+        // Blaue Punkte entfernen
+        const computedStyle = window.getComputedStyle(el);
+        if (
+            computedStyle.backgroundColor === 'rgb(0, 102, 255)' || 
+            computedStyle.backgroundColor === '#0066ff' ||
+            computedStyle.backgroundColor === 'blue' ||
+            el.classList.contains('blue-dot') ||
+            (el.classList.contains('dot') && !el.closest('.loader'))
+        ) {
+            if (!el.classList.contains('btn') && 
+                !el.classList.contains('social-icon') && 
+                !el.closest('.loader')) {
+                el.style.display = 'none';
+            }
+        }
     });
     
-    // Sofort mit der Initialisierung beginnen, nicht auf window.load warten
-    // Loader ausblenden
+    // Initialisierung aller Funktionen
+    initializeLoader();
+    initializeNavigation();
+    initializeMobileMenu();
+    initializeCustomCursor();
+    initializeSmoothScroll();
+    initializeContactForm();
+    
+    console.log("Portfolio vollständig initialisiert");
+});
+
+// Loader ausblenden
+function initializeLoader() {
     const loader = document.querySelector('.loader-container');
     if (loader) {
         setTimeout(function() {
@@ -19,31 +53,10 @@ document.addEventListener('DOMContentLoaded', function() {
             }, 500);
         }, 800);
     }
-    
-    // Sofort alle Funktionen initialisieren
-    console.log("Initialisiere Funktionen...");
-    try {
-        initializeSmoothScroll();
-        console.log("Smooth Scroll initialisiert");
-    } catch (e) {
-        console.error("Fehler bei Smooth Scroll:", e);
-    }
-    
-    try {
-        initializeContactForm();
-        console.log("Kontaktformular initialisiert");
-    } catch (e) {
-        console.error("Fehler bei Kontaktformular:", e);
-    }
-    
-    try {
-        initializeCustomCursor();
-        console.log("Custom Cursor initialisiert");
-    } catch (e) {
-        console.error("Fehler bei Custom Cursor:", e);
-    }
-    
-    // Navigation sticky machen beim Scrollen
+}
+
+// Navigation sticky machen beim Scrollen
+function initializeNavigation() {
     window.addEventListener('scroll', function() {
         const header = document.getElementById('header');
         if (header) {
@@ -54,8 +67,10 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
     });
-    
-    // Mobile Navigation Toggle
+}
+
+// Mobile Navigation Toggle
+function initializeMobileMenu() {
     const menuToggle = document.querySelector('.menu-toggle');
     const nav = document.querySelector('nav');
     
@@ -64,7 +79,7 @@ document.addEventListener('DOMContentLoaded', function() {
             nav.classList.toggle('active');
             this.classList.toggle('active');
             
-            // Einfache Animation ohne GSAP
+            // Einfache Animation
             const spans = this.querySelectorAll('span');
             if (this.classList.contains('active') && spans.length >= 3) {
                 spans[0].style.transform = 'rotate(45deg) translate(6px, 6px)';
@@ -94,9 +109,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
-    
-    console.log("Portfolio vollständig initialisiert");
-});
+}
 
 // Custom Cursor Funktion
 function initializeCustomCursor() {
@@ -153,45 +166,215 @@ function initializeSmoothScroll() {
     });
 }
 
-// Kontaktformular Validierung
+// Kontaktformular mit Formspree Integration
 function initializeContactForm() {
-    const contactForm = document.getElementById('contactForm');
+    console.log("Initialisiere Kontaktformular...");
     
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
+    const contactForm = document.getElementById('contactForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const successMessage = document.getElementById('successMessage');
+    const errorMessage = document.getElementById('errorMessage');
+    const errorText = document.getElementById('errorText');
+    
+    if (!contactForm) {
+        console.log("Kontaktformular nicht gefunden!");
+        return;
+    }
+    
+    console.log("Kontaktformular gefunden - füge Event Listener hinzu");
+    
+    contactForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        console.log("Formular abgesendet!");
+        
+        // Form Felder
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const subject = document.getElementById('subject').value.trim();
+        const message = document.getElementById('message').value.trim();
+        
+        console.log("Formulardaten:", { name, email, subject, message });
+        
+        // Nachrichten verstecken
+        hideMessages();
+        
+        // Client-seitige Validierung
+        const validationError = validateForm(name, email, subject, message);
+        if (validationError) {
+            console.log("Validierungsfehler:", validationError);
+            showErrorMessage(validationError);
+            return;
+        }
+        
+        // Button Status ändern
+        const originalBtnText = submitBtn.innerHTML;
+        setButtonLoading(submitBtn, true);
+        
+        try {
+            console.log("Sende Daten an Formspree...");
             
-            // Form Felder
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const subject = document.getElementById('subject').value;
-            const message = document.getElementById('message').value;
+            // FormData für Formspree erstellen
+            const formData = new FormData(contactForm);
             
-            // Einfache Validierung
-            if (name === '' || email === '' || subject === '' || message === '') {
-                alert('Bitte fülle alle Felder aus.');
-                return;
-            }
+            // Fetch Request an Formspree
+            const response = await fetch(contactForm.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
             
-            // Simuliere Formularversand
-            const submitBtn = contactForm.querySelector('button[type="submit"]');
-            const originalBtnText = submitBtn.textContent;
+            console.log("Formspree Response:", response.status);
             
-            submitBtn.disabled = true;
-            submitBtn.textContent = 'Wird gesendet...';
-            
-            // Simuliere Verzögerung für Feedback
-            setTimeout(function() {
-                // Erfolgreiche Übermittlung simulieren
-                alert('Vielen Dank! Deine Nachricht wurde erfolgreich gesendet.');
-                
-                // Formular zurücksetzen
+            if (response.ok) {
+                console.log("Formular erfolgreich gesendet!");
+                // Erfolgreich gesendet
+                showSuccessMessage();
                 contactForm.reset();
                 
-                // Button zurücksetzen
-                submitBtn.disabled = false;
-                submitBtn.textContent = originalBtnText;
-            }, 1500);
+                // Smooth scroll zum Erfolg-Message
+                if (successMessage) {
+                    successMessage.scrollIntoView({ 
+                        behavior: 'smooth', 
+                        block: 'center' 
+                    });
+                }
+                
+            } else {
+                console.log("Fehler beim Senden");
+                // Fehler beim Senden
+                let errorMsg = 'Es gab ein Problem beim Senden deiner Nachricht. Bitte versuche es erneut.';
+                
+                try {
+                    const data = await response.json();
+                    if (data.errors && data.errors.length > 0) {
+                        errorMsg = 'Fehler: ' + data.errors.map(error => error.message).join(', ');
+                    }
+                } catch (e) {
+                    console.log("Konnte Fehler-JSON nicht parsen");
+                }
+                
+                showErrorMessage(errorMsg);
+            }
+        } catch (error) {
+            // Netzwerk- oder andere Fehler
+            console.error('Formular-Fehler:', error);
+            showErrorMessage('Netzwerkfehler. Bitte überprüfe deine Internetverbindung und versuche es erneut.');
+        } finally {
+            // Button zurücksetzen
+            setButtonLoading(submitBtn, false, originalBtnText);
+        }
+    });
+    
+    // Auto-hide Nachrichten nach 5 Sekunden
+    function autoHideMessage(element) {
+        setTimeout(() => {
+            if (element && element.style.display === 'block') {
+                element.style.opacity = '0';
+                setTimeout(() => {
+                    element.style.display = 'none';
+                    element.style.opacity = '1';
+                }, 500);
+            }
+        }, 5000);
+    }
+    
+    // Observer für Auto-Hide
+    if (window.MutationObserver) {
+        const observer = new MutationObserver((mutations) => {
+            mutations.forEach((mutation) => {
+                if (mutation.attributeName === 'style') {
+                    const target = mutation.target;
+                    if (target.id === 'successMessage' && target.style.display === 'block') {
+                        autoHideMessage(target);
+                    }
+                    if (target.id === 'errorMessage' && target.style.display === 'block') {
+                        autoHideMessage(target);
+                    }
+                }
+            });
         });
+        
+        if (successMessage) observer.observe(successMessage, { attributes: true });
+        if (errorMessage) observer.observe(errorMessage, { attributes: true });
+    }
+    
+    // Hilfsfunktionen
+    function hideMessages() {
+        if (successMessage) successMessage.style.display = 'none';
+        if (errorMessage) errorMessage.style.display = 'none';
+    }
+    
+    function showSuccessMessage() {
+        if (successMessage) {
+            successMessage.style.display = 'block';
+        }
+    }
+    
+    function showErrorMessage(message) {
+        if (errorMessage && errorText) {
+            errorText.textContent = message;
+            errorMessage.style.display = 'block';
+        }
+    }
+    
+    function validateForm(name, email, subject, message) {
+        if (!name || !email || !subject || !message) {
+            return 'Bitte fülle alle Felder aus.';
+        }
+        
+        // E-Mail Format validieren
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            return 'Bitte gib eine gültige E-Mail-Adresse ein.';
+        }
+        
+        // Minimale Länge prüfen
+        if (name.length < 2) {
+            return 'Der Name muss mindestens 2 Zeichen lang sein.';
+        }
+        
+        if (subject.length < 3) {
+            return 'Der Betreff muss mindestens 3 Zeichen lang sein.';
+        }
+        
+        if (message.length < 10) {
+            return 'Die Nachricht muss mindestens 10 Zeichen lang sein.';
+        }
+        
+        return null; // Keine Validierungsfehler
+    }
+    
+    function setButtonLoading(button, isLoading, originalText = '') {
+        if (button) {
+            if (isLoading) {
+                button.disabled = true;
+                button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Wird gesendet...';
+            } else {
+                button.disabled = false;
+                button.innerHTML = originalText || '<i class="fas fa-paper-plane"></i> Nachricht senden';
+            }
+        }
     }
 }
+
+// Utility Functions
+function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
+
+// Performance Optimierung für Scroll Events
+const debouncedScrollHandler = debounce(() => {
+    // Hier können weitere scroll-basierte Animationen hinzugefügt werden
+}, 10);
+
+window.addEventListener('scroll', debouncedScrollHandler);

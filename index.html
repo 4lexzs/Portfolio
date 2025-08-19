@@ -8,110 +8,11 @@
     <!-- Externe Libraries -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <!-- Notfall-Styles, um sicherzustellen, dass alles richtig angezeigt wird -->
-    <style>
-        /* Inline-Styles, die höhere Priorität haben als externe CSS */
-        .skill-card {
-            opacity: 1 !important;
-            transform: none !important;
-            display: flex !important;
-        }
-        .skill-icon, .skill-card h3 {
-            opacity: 1 !important;
-            transform: none !important;
-        }
-        .project-card, .contact-form, .contact-info, .bio, .hero-content {
-            opacity: 1 !important;
-            transform: none !important;
-        }
-        
-        /* Filter-Buttons Styling direkt im HTML */
-        .filter-btn, .filter-skill-btn {
-            padding: 8px 20px;
-            margin: 5px;
-            background-color: transparent;
-            border: 1px solid #171717;
-            color: #ffffff;
-            border-radius: 30px;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        
-        .filter-btn.active, .filter-btn:hover, 
-        .filter-skill-btn.active, .filter-skill-btn:hover {
-            background-color: #0066ff;
-            color: white;
-            border-color: #0066ff;
-        }
-        
-        /* Projekt-Karten sicherstellen */
-        .project-card {
-            display: block !important;
-        }
-        
-        /* Skill-Karten Hintergrund sicherstellen */
-        .skill-card {
-            background-color: #171717 !important;
-        }
-        
-        /* Sicherstellen, dass der Footer am Ende bleibt */
-        body {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            position: relative;
-        }
-        
-        main {
-            flex-grow: 1;
-        }
-        
-        /* Entfernt alle blauen Punkte/Kreise */
-        .dot:not(.loader .dot), 
-        .blue-dot,
-        div[class*="dot"]:not(.loader .dot),
-        span[class*="dot"]:not(.loader .dot),
-        *[style*="blue"]:not(a):not(.btn):not(.skill-card):not(.social-icon):not(.highlight),
-        *[style*="circle"]:not(.social-icon) {
-            display: none !important;
-        }
-        
-        /* Blaue Cursor-Elemente auf der Seite entfernen */
-        .cursor-blue,
-        .blue-circle,
-        .circle-blue,
-        .blue-ball {
-            display: none !important;
-        }
-        
-        /* Entfernt alle Profilbilder */
-        img[alt="Profilbild"],
-        img[src*="placeholder"],
-        .profile-image,
-        img[alt="Edwin Alexander"] {
-            display: none !important;
-        }
-        
-        /* Über-mich-Sektion anpassen */
-        .bio.full-width {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-        }
-        
-        .social-links-inline {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 20px;
-        }
-    </style>
-    
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <!-- Custom Cursor - nur der für Interaktionen benötigte -->
+    <!-- Custom Cursor -->
     <div class="cursor"></div>
 
     <!-- Loader -->
@@ -172,19 +73,19 @@
                 <span class="line"></span>
             </div>
             <div class="about-content">
-                <!-- Profilbild entfernt -->
                 <div class="bio full-width">
                     <h3>Hallo, ich bin <span class="highlight">Edwin Alexander Paucar Vidal</span></h3>
-                    <p>
-                        Ich bin ein junger, engagierter Schüler der IMS Baden mit Interesse an Webentwicklung und Technologie.
-                        Geboren in Spanien, lebe ich seit 2013 in der Schweiz und bringe vielfältige kulturelle Erfahrungen mit.
-                    </p>
-                    <p>
-                        Meine Leidenschaft gilt der Programmierung und dem Erstellen von Webseiten.
-                        Ich beherrsche HTML, CSS, JavaScript und Python. Neben der Programmierung interessiere ich
-                        mich auch für Datenbankmanagement und Webdesign.
-                    </p>
-                    <!-- Social-Links direkt in die Bio integrieren -->
+<p>
+    Ich bin ein junger, engagierter Schüler der IMS Baden mit Interesse an Webentwicklung und Technologie.
+    Geboren in Spanien, bin ich in der Schweiz aufgewachsen und spreche sehr gut Spanisch, da ich zuhause nur Spanisch rede.
+    Diese vielfältigen kulturellen Erfahrungen bereichern meine Perspektive.
+</p>
+<p>
+    Von der Schule aus bin ich Applikationsentwickler, aber am meisten habe ich Webentwicklung gerne.
+    Ich kann aber auch Apps erstellen, Backend und Frontend entwickeln und mit APIs arbeiten.
+    Ich beherrsche HTML, CSS, JavaScript, Python, C# und Node.js, welche ich in der Schule erlernt habe und gut beherrsche.
+    Neben der Programmierung interessiere ich mich auch für Datenbankmanagement und Webdesign.
+</p>
                     <div class="social-links-inline">
                         <a href="https://github.com/4lexzs" target="_blank" class="social-icon">
                             <i class="fab fa-github"></i>
@@ -201,218 +102,271 @@
         </section>
 
         <!-- Skills Section -->
-        <section id="skills" class="skills">
-            <div class="section-header">
-                <h2>Meine Skills</h2>
-                <span class="line"></span>
+<section id="skills" class="skills">
+    <div class="section-header">
+        <h2>Meine Skills</h2>
+        <span class="line"></span>
+    </div>
+    <div class="skills-grid">
+        <!-- Programmiersprachen -->
+        <div class="skill-card">
+            <div class="skill-icon">
+                <i class="fab fa-html5"></i>
             </div>
-            <div class="skills-grid">
-                <!-- Programmiersprachen -->
-                <div class="skill-card">
-                    <div class="skill-icon">
-                        <i class="fab fa-html5"></i>
-                    </div>
-                    <h3>HTML</h3>
-                    <div class="skill-overlay">
-                        <p>Frontend-Grundlage für Webseiten</p>
-                    </div>
-                </div>
-                
-                <div class="skill-card">
-                    <div class="skill-icon">
-                        <i class="fab fa-css3-alt"></i>
-                    </div>
-                    <h3>CSS</h3>
-                    <div class="skill-overlay">
-                        <p>Styling für Webseiten und Anwendungen</p>
-                    </div>
-                </div>
-                
-                <div class="skill-card">
-                    <div class="skill-icon">
-                        <i class="fab fa-js"></i>
-                    </div>
-                    <h3>JavaScript</h3>
-                    <div class="skill-overlay">
-                        <p>Interaktive Webentwicklung</p>
-                    </div>
-                </div>
-                
-                <div class="skill-card">
-                    <div class="skill-icon">
-                        <i class="fab fa-python"></i>
-                    </div>
-                    <h3>Python</h3>
-                    <div class="skill-overlay">
-                        <p>Vielseitige Programmiersprache für verschiedene Anwendungen</p>
-                    </div>
-                </div>
-                
-                <!-- Sprachen -->
-                <div class="skill-card">
-                    <div class="skill-icon">
-                        <i class="fas fa-language"></i>
-                    </div>
-                    <h3>Deutsch</h3>
-                    <div class="skill-overlay">
-                        <p>Muttersprache</p>
-                    </div>
-                </div>
-                
-                <div class="skill-card">
-                    <div class="skill-icon">
-                        <i class="fas fa-language"></i>
-                    </div>
-                    <h3>Spanisch</h3>
-                    <div class="skill-overlay">
-                        <p>Muttersprache</p>
-                    </div>
-                </div>
-                
-                <div class="skill-card">
-                    <div class="skill-icon">
-                        <i class="fas fa-language"></i>
-                    </div>
-                    <h3>Englisch</h3>
-                    <div class="skill-overlay">
-                        <p>Gute Kenntnisse in Wort und Schrift</p>
-                    </div>
-                </div>
-                
-                <!-- Soft Skills -->
-                <div class="skill-card">
-                    <div class="skill-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <h3>Teamarbeit</h3>
-                    <div class="skill-overlay">
-                        <p>Effektive Zusammenarbeit in Teams</p>
-                    </div>
-                </div>
-                
-                <div class="skill-card">
-                    <div class="skill-icon">
-                        <i class="fas fa-comments"></i>
-                    </div>
-                    <h3>Kommunikation</h3>
-                    <div class="skill-overlay">
-                        <p>Klare und effektive Kommunikation</p>
-                    </div>
-                </div>
-                
-                <div class="skill-card">
-                    <div class="skill-icon">
-                        <i class="fas fa-tasks"></i>
-                    </div>
-                    <h3>Projektmanagement</h3>
-                    <div class="skill-overlay">
-                        <p>Organisation und Koordination von Projekten</p>
-                    </div>
-                </div>
-                
-                <!-- Tools -->
-                <div class="skill-card">
-                    <div class="skill-icon">
-                        <i class="fab fa-github"></i>
-                    </div>
-                    <h3>GitHub</h3>
-                    <div class="skill-overlay">
-                        <p>Versionskontrolle und Zusammenarbeit</p>
-                    </div>
-                </div>
-                
-                <div class="skill-card">
-                    <div class="skill-icon">
-                        <i class="fas fa-database"></i>
-                    </div>
-                    <h3>SQL</h3>
-                    <div class="skill-overlay">
-                        <p>Datenbankabfragen und -verwaltung</p>
-                    </div>
-                </div>
+            <h3>HTML</h3>
+            <div class="skill-overlay">
+                <p>Frontend-Grundlage für Webseiten</p>
             </div>
-        </section>
+        </div>
+        
+        <div class="skill-card">
+            <div class="skill-icon">
+                <i class="fab fa-css3-alt"></i>
+            </div>
+            <h3>CSS</h3>
+            <div class="skill-overlay">
+                <p>Styling für Webseiten und Anwendungen</p>
+            </div>
+        </div>
+        
+        <div class="skill-card">
+            <div class="skill-icon">
+                <i class="fab fa-js"></i>
+            </div>
+            <h3>JavaScript</h3>
+            <div class="skill-overlay">
+                <p>Interaktive Webentwicklung</p>
+            </div>
+        </div>
+        
+        <div class="skill-card">
+            <div class="skill-icon">
+                <i class="fab fa-python"></i>
+            </div>
+            <h3>Python</h3>
+            <div class="skill-overlay">
+                <p>Vielseitige Programmiersprache für verschiedene Anwendungen</p>
+            </div>
+        </div>
+
+        <!-- C# -->
+        <div class="skill-card">
+            <div class="skill-icon">
+                <i class="fas fa-code"></i>
+            </div>
+            <h3>C#</h3>
+            <div class="skill-overlay">
+                <p>Objektorientierte Programmierung mit .NET Framework</p>
+            </div>
+        </div>
+
+        <!-- Node.js -->
+        <div class="skill-card">
+            <div class="skill-icon">
+                <i class="fab fa-node-js"></i>
+            </div>
+            <h3>Node.js</h3>
+            <div class="skill-overlay">
+                <p>Server-seitige JavaScript-Entwicklung</p>
+            </div>
+        </div>
+
+        <!-- Frontend Development -->
+        <div class="skill-card">
+            <div class="skill-icon">
+                <i class="fas fa-laptop-code"></i>
+            </div>
+            <h3>Frontend</h3>
+            <div class="skill-overlay">
+                <p>Benutzeroberflächen und User Experience Design</p>
+            </div>
+        </div>
+
+        <!-- Backend Development -->
+        <div class="skill-card">
+            <div class="skill-icon">
+                <i class="fas fa-server"></i>
+            </div>
+            <h3>Backend</h3>
+            <div class="skill-overlay">
+                <p>Server-Logik und Datenbank-Integration</p>
+            </div>
+        </div>
+        
+        <!-- Sprachen -->
+        <div class="skill-card">
+            <div class="skill-icon">
+                <i class="fas fa-language"></i>
+            </div>
+            <h3>Deutsch</h3>
+            <div class="skill-overlay">
+                <p>Muttersprache</p>
+            </div>
+        </div>
+        
+        <div class="skill-card">
+            <div class="skill-icon">
+                <i class="fas fa-language"></i>
+            </div>
+            <h3>Spanisch</h3>
+            <div class="skill-overlay">
+                <p>Muttersprache</p>
+            </div>
+        </div>
+        
+        <div class="skill-card">
+            <div class="skill-icon">
+                <i class="fas fa-language"></i>
+            </div>
+            <h3>Englisch</h3>
+            <div class="skill-overlay">
+                <p>Gute Kenntnisse in Wort und Schrift</p>
+            </div>
+        </div>
+        
+        <!-- Soft Skills -->
+        <div class="skill-card">
+            <div class="skill-icon">
+                <i class="fas fa-users"></i>
+            </div>
+            <h3>Teamarbeit</h3>
+            <div class="skill-overlay">
+                <p>Effektive Zusammenarbeit in Teams</p>
+            </div>
+        </div>
+        
+        <div class="skill-card">
+            <div class="skill-icon">
+                <i class="fas fa-comments"></i>
+            </div>
+            <h3>Kommunikation</h3>
+            <div class="skill-overlay">
+                <p>Klare und effektive Kommunikation</p>
+            </div>
+        </div>
+        
+        <div class="skill-card">
+            <div class="skill-icon">
+                <i class="fas fa-tasks"></i>
+            </div>
+            <h3>Projektmanagement</h3>
+            <div class="skill-overlay">
+                <p>Organisation und Koordination von Projekten</p>
+            </div>
+        </div>
+        
+        <!-- Tools -->
+        <div class="skill-card">
+            <div class="skill-icon">
+                <i class="fab fa-github"></i>
+            </div>
+            <h3>GitHub</h3>
+            <div class="skill-overlay">
+                <p>Versionskontrolle und Zusammenarbeit</p>
+            </div>
+        </div>
+        
+        <div class="skill-card">
+            <div class="skill-icon">
+                <i class="fas fa-database"></i>
+            </div>
+            <h3>SQL</h3>
+            <div class="skill-overlay">
+                <p>Datenbankabfragen und -verwaltung</p>
+            </div>
+        </div>
+    </div>
+</section>
 
         <!-- Projects Section -->
-        <section id="projects" class="projects">
-            <div class="section-header">
-                <h2>Meine Projekte</h2>
-                <span class="line"></span>
+<section id="projects" class="projects">
+    <div class="section-header">
+        <h2>Meine Projekte</h2>
+        <span class="line"></span>
+    </div>
+    <div class="projects-grid">
+        <!-- Portfolio Website -->
+        <div class="project-card">
+            <div class="project-img">
+                <img src="images/portfolio.png" alt="Portfolio Website">
             </div>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-img">
-                        <img src="/api/placeholder/600/400" alt="Projekt 1">
-                    </div>
-                    <div class="project-info">
-                        <h3>E-Commerce Plattform</h3>
-                        <p>Eine Full-Stack E-Commerce Lösung mit React, Node.js und MongoDB.</p>
-                        <div class="project-tech">
-                            <span>React</span>
-                            <span>Node.js</span>
-                            <span>MongoDB</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="btn small" onclick="alert('Demo-Version wird bald verfügbar sein!'); return false;">Demo</a>
-                            <a href="https://github.com/4lexzs" target="_blank" class="btn small secondary" onclick="window.open(this.href, '_blank'); return false;">Code</a>
-                        </div>
-                    </div>
+            <div class="project-info">
+                <h3>Portfolio Website</h3>
+                <p>Meine persönliche Portfolio-Website mit modernen Animationen und responsivem Design.</p>
+                <div class="project-tech">
+                    <span>HTML</span>
+                    <span>CSS</span>
+                    <span>JavaScript</span>
+                    <span>GSAP</span>
                 </div>
-                <div class="project-card">
-                    <div class="project-img">
-                        <img src="/api/placeholder/600/400" alt="Projekt 2">
-                    </div>
-                    <div class="project-info">
-                        <h3>Fitness Tracker App</h3>
-                        <p>Eine mobile App zur Verfolgung von Fitnesszielen und Trainingseinheiten.</p>
-                        <div class="project-tech">
-                            <span>React Native</span>
-                            <span>Firebase</span>
-                            <span>Redux</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="btn small" onclick="alert('Demo-Version wird bald verfügbar sein!'); return false;">Demo</a>
-                            <a href="https://github.com/4lexzs" target="_blank" class="btn small secondary" onclick="window.open(this.href, '_blank'); return false;">Code</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-img">
-                        <img src="/api/placeholder/600/400" alt="Projekt 3">
-                    </div>
-                    <div class="project-info">
-                        <h3>UI/UX Redesign</h3>
-                        <p>Ein komplettes Redesign eines Dashboards für verbesserte Benutzererfahrung.</p>
-                        <div class="project-tech">
-                            <span>Figma</span>
-                            <span>Adobe XD</span>
-                            <span>Illustrator</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/4lexzs" target="_blank" class="btn small" onclick="window.open(this.href, '_blank'); return false;">Case Study</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-img">
-                        <img src="/api/placeholder/600/400" alt="Projekt 4">
-                    </div>
-                    <div class="project-info">
-                        <h3>Portfolio Website</h3>
-                        <p>Eine responsive Portfolio-Website mit modernen Animationen und Effekten.</p>
-                        <div class="project-tech">
-                            <span>HTML/CSS</span>
-                            <span>JavaScript</span>
-                            <span>GSAP</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="btn small" onclick="alert('Demo-Version wird bald verfügbar sein!'); return false;">Demo</a>
-                            <a href="https://github.com/4lexzs" target="_blank" class="btn small secondary" onclick="window.open(this.href, '_blank'); return false;">Code</a>
-                        </div>
-                    </div>
+                <div class="project-links">
+                    <a href="https://4lexzs.github.io/Portfolio/" target="_blank" class="btn small">Live Demo</a>
+                    <a href="https://github.com/4lexzs/Portfolio" target="_blank" class="btn small secondary">Code</a>
                 </div>
             </div>
-        </section>
+        </div>
+
+        <!-- Reiseziel-Finder -->
+        <div class="project-card">
+            <div class="project-img">
+                <img src="images/reisefinder.png" alt="Reiseziele Website">
+            </div>
+            <div class="project-info">
+                <h3>Reiseziel-Finder</h3>
+                <p>Eine interaktive Website zur Entdeckung weltweiter Reiseziele mit schönen Bildern.</p>
+                <div class="project-tech">
+                    <span>HTML</span>
+                    <span>CSS</span>
+                    <span>JavaScript</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://4lexzs.github.io/Reiseziele/" target="_blank" class="btn small">Live Demo</a>
+                    <a href="https://github.com/4lexzs/Reiseziele" target="_blank" class="btn small secondary">Code</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- To-Do Liste -->
+        <div class="project-card">
+            <div class="project-img">
+                <img src="images//todo.png" alt="To-Do Liste">
+            </div>
+            <div class="project-info">
+                <h3>To-Do Liste</h3>
+                <p>Eine moderne Aufgabenverwaltung mit lokaler Speicherung und intuitiver Bedienung.</p>
+                <div class="project-tech">
+                    <span>HTML</span>
+                    <span>CSS</span>
+                    <span>JavaScript</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://4lexzs.github.io/To_do_Liste/" target="_blank" class="btn small">Live Demo</a>
+                    <a href="https://github.com/4lexzs/To_do_Liste" target="_blank" class="btn small secondary">Code</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Madrid Stadtführer -->
+        <div class="project-card">
+            <div class="project-img">
+                <img src="images/madrid.png" alt="Madrid Website">
+            </div>
+            <div class="project-info">
+                <h3>Madrid Stadtführer</h3>
+                <p>Ein digitaler Stadtführer für Madrid mit Sehenswürdigkeiten und kulturellen Informationen.</p>
+                <div class="project-tech">
+                    <span>HTML</span>
+                    <span>CSS</span>
+                    <span>JavaScript</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://4lexzs.github.io/Madrid/" target="_blank" class="btn small">Live Demo</a>
+                    <a href="https://github.com/4lexzs/Madrid" target="_blank" class="btn small secondary">Code</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
         <!-- Contact Section -->
         <section id="contact" class="contact">
@@ -452,7 +406,16 @@
                     </div>
                 </div>
                 <div class="contact-form">
-                    <form id="contactForm">
+                    <!-- Success/Error Messages -->
+                    <div id="successMessage" class="success-message">
+                        <i class="fas fa-check-circle"></i> Vielen Dank! Deine Nachricht wurde erfolgreich gesendet.
+                    </div>
+                    <div id="errorMessage" class="error-message">
+                        <i class="fas fa-exclamation-circle"></i> <span id="errorText">Es gab ein Problem beim Senden deiner Nachricht. Bitte versuche es erneut.</span>
+                    </div>
+                    
+                    <!-- Formspree Form -->
+                    <form id="contactForm" action="https://formspree.io/f/xldlkygk" method="POST">
                         <div class="form-group">
                             <input type="text" id="name" name="name" required>
                             <label for="name">Name</label>
@@ -473,14 +436,19 @@
                             <label for="message">Nachricht</label>
                             <span class="bar"></span>
                         </div>
-                        <button type="submit" class="btn primary">Nachricht senden</button>
+                        <!-- Honeypot field for spam protection -->
+                        <input type="text" name="_gotcha" style="display:none !important">
+                        
+                        <button type="submit" class="btn primary" id="submitBtn">
+                            <i class="fas fa-paper-plane"></i> Nachricht senden
+                        </button>
                     </form>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- Footer - ohne störende Elemente -->
+    <!-- Footer -->
     <footer class="site-footer">
         <div class="footer-content">
             <div class="footer-logo">Edwin<span>.</span></div>
@@ -499,197 +467,7 @@
 
     <!-- FontAwesome Icons -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
-    
-    <!-- Main JavaScript - mit spezieller Funktion zum Entfernen blauer Punkte und Profilbilder -->
-    <script>
-    // Warten bis DOM vollständig geladen ist
-    document.addEventListener('DOMContentLoaded', function() {
-        console.log("DOM geladen - Initialisiere Portfolio...");
-        
-        // Entferne alle störenden Elemente
-        const elementsToCheck = document.querySelectorAll('*');
-        elementsToCheck.forEach(el => {
-            // Bilder mit bestimmten Attributen entfernen
-            if (el.tagName === 'IMG') {
-                if (el.alt === 'Profilbild' || 
-                    el.alt === 'Edwin Alexander' || 
-                    el.src && el.src.includes('placeholder') && !el.closest('.project-img')) {
-                    el.style.display = 'none';
-                }
-            }
-            
-            // Blaue Punkte entfernen
-            const computedStyle = window.getComputedStyle(el);
-            if (
-                computedStyle.backgroundColor === 'rgb(0, 102, 255)' || 
-                computedStyle.backgroundColor === '#0066ff' ||
-                computedStyle.backgroundColor === 'blue' ||
-                el.classList.contains('blue-dot') ||
-                el.classList.contains('dot') && !el.closest('.loader')
-            ) {
-                if (!el.classList.contains('btn') && 
-                    !el.classList.contains('social-icon') && 
-                    !el.closest('.loader')) {
-                    el.style.display = 'none';
-                }
-            }
-        });
-        
-        // Loader ausblenden nach Seitenladung
-        const loader = document.querySelector('.loader-container');
-        if (loader) {
-            setTimeout(function() {
-                loader.style.opacity = '0';
-                setTimeout(function() {
-                    loader.style.display = 'none';
-                }, 500);
-            }, 800);
-        }
-        
-        // Navigation sticky machen beim Scrollen
-        window.addEventListener('scroll', function() {
-            const header = document.getElementById('header');
-            if (header) {
-                if (window.scrollY > 50) {
-                    header.classList.add('sticky');
-                } else {
-                    header.classList.remove('sticky');
-                }
-            }
-        });
-        
-        // Mobile Navigation Toggle
-        const menuToggle = document.querySelector('.menu-toggle');
-        const nav = document.querySelector('nav');
-        
-        if (menuToggle && nav) {
-            menuToggle.addEventListener('click', function() {
-                nav.classList.toggle('active');
-                this.classList.toggle('active');
-                
-                // Einfache Animation 
-                const spans = this.querySelectorAll('span');
-                if (this.classList.contains('active') && spans.length >= 3) {
-                    spans[0].style.transform = 'rotate(45deg) translate(6px, 6px)';
-                    spans[1].style.opacity = '0';
-                    spans[2].style.transform = 'rotate(-45deg) translate(6px, -6px)';
-                } else if (spans.length >= 3) {
-                    spans[0].style.transform = 'none';
-                    spans[1].style.opacity = '1';
-                    spans[2].style.transform = 'none';
-                }
-            });
-        }
-        
-        // Schließen des Menüs beim Klicken auf einen Link (mobile)
-        const navLinks = document.querySelectorAll('.nav-link');
-        navLinks.forEach(link => {
-            link.addEventListener('click', function() {
-                if (nav) nav.classList.remove('active');
-                if (menuToggle) {
-                    menuToggle.classList.remove('active');
-                    const spans = menuToggle.querySelectorAll('span');
-                    if (spans.length >= 3) {
-                        spans[0].style.transform = 'none';
-                        spans[1].style.opacity = '1';
-                        spans[2].style.transform = 'none';
-                    }
-                }
-            });
-        });
-        
-        // Custom Cursor Funktion
-        const cursor = document.querySelector('.cursor');
-        
-        if (cursor) {
-            // Cursor anzeigen, wenn die Maus bewegt wird
-            document.addEventListener('mousemove', function(e) {
-                cursor.style.opacity = '1';
-                cursor.style.top = e.clientY + 'px';
-                cursor.style.left = e.clientX + 'px';
-            });
-            
-            // Cursor ausblenden, wenn die Maus das Fenster verlässt
-            document.addEventListener('mouseout', function() {
-                cursor.style.opacity = '0';
-            });
-            
-            // Cursor-Effekt bei hover über Links, Buttons etc.
-            const links = document.querySelectorAll('a, button, .btn, .project-card, .social-icon');
-            links.forEach(link => {
-                link.addEventListener('mouseenter', function() {
-                    cursor.classList.add('active');
-                });
-                link.addEventListener('mouseleave', function() {
-                    cursor.classList.remove('active');
-                });
-            });
-        }
-        
-        // Smooth Scroll für Navigation
-        const links = document.querySelectorAll('a[href^="#"]');
-        
-        links.forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    const headerHeight = document.querySelector('header').offsetHeight;
-                    const targetPosition = targetElement.offsetTop - headerHeight;
-                    
-                    window.scrollTo({
-                        top: targetPosition,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-        
-        // Kontaktformular Validierung
-        const contactForm = document.getElementById('contactForm');
-        
-        if (contactForm) {
-            contactForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                // Form Felder
-                const name = document.getElementById('name').value;
-                const email = document.getElementById('email').value;
-                const subject = document.getElementById('subject').value;
-                const message = document.getElementById('message').value;
-                
-                // Einfache Validierung
-                if (name === '' || email === '' || subject === '' || message === '') {
-                    alert('Bitte fülle alle Felder aus.');
-                    return;
-                }
-                
-                // Simuliere Formularversand
-                const submitBtn = contactForm.querySelector('button[type="submit"]');
-                const originalBtnText = submitBtn.textContent;
-                
-                submitBtn.disabled = true;
-                submitBtn.textContent = 'Wird gesendet...';
-                
-                // Simuliere Verzögerung für Feedback
-                setTimeout(function() {
-                    // Erfolgreiche Übermittlung simulieren
-                    alert('Vielen Dank! Deine Nachricht wurde erfolgreich gesendet.');
-                    
-                    // Formular zurücksetzen
-                    contactForm.reset();
-                    
-                    // Button zurücksetzen
-                    submitBtn.disabled = false;
-                    submitBtn.textContent = originalBtnText;
-                }, 1500);
-            });
-        }
-    });
-    </script>
+    <!-- Main JavaScript -->
+    <script src="script.js"></script>
 </body>
 </html>

@@ -1,10 +1,10 @@
-# 💼 Edwin Alexander - Portfolio Website
+# Edwin Alexander - Portfolio Website
 
 Eine moderne, responsive Portfolio-Website, die meine Fähigkeiten als Applikationsentwickler und Webentwickler präsentiert.
 
 ##Live Demo
 
-[**🌐 Portfolio ansehen**](https://www.edwinpaucar.ch/)
+[**Portfolio ansehen**](https://www.edwinpaucar.ch/)
 
 ##Über das Projekt
 
@@ -12,12 +12,12 @@ Dieses Portfolio zeigt meine Projekte, Fähigkeiten und Erfahrungen als Schüler
 
 ##Features
 
-- **🎨 Modernes Design** - Dunkles Theme mit ansprechenden Animationen
-- **📱 Responsive** - Optimiert für alle Geräte (Desktop, Tablet, Mobile)
-- **⚡ Animationen** - GSAP-powered Animationen und Glitch-Effekte
-- **📧 Kontaktformular** - Funktionierendes Formular mit Formspree-Integration
-- **🖱️ Custom Cursor** - Interaktiver Cursor für bessere UX
-- **🌟 Smooth Scrolling** - Sanfte Navigation zwischen Sektionen
+- **Modernes Design** - Dunkles Theme mit ansprechenden Animationen
+- **Responsive** - Optimiert für alle Geräte (Desktop, Tablet, Mobile)
+- **Animationen** - GSAP-powered Animationen und Glitch-Effekte
+- **Kontaktformular** - Funktionierendes Formular mit Formspree-Integration
+- **Custom Cursor** - Interaktiver Cursor für bessere UX
+- **Smooth Scrolling** - Sanfte Navigation zwischen Sektionen
 
 ##Technologien
 
@@ -50,11 +50,11 @@ Portfolio/
 
 ##Sektionen
 
-1. **🏠 Hero** - Willkommensbereich mit Glitch-Effekt
-2. **👨‍💻 Über mich** - Persönliche Vorstellung und Hintergrund
-3. **🛠️ Skills** - Technische Fähigkeiten und Sprachen
-4. **💼 Projekte** - Showcase meiner wichtigsten Projekte
-5. **📞 Kontakt** - Kontaktformular und Social Links
+1. **Hero** - Willkommensbereich mit Glitch-Effekt
+2. **Über mich** - Persönliche Vorstellung und Hintergrund
+3. **🛠Skills** - Technische Fähigkeiten und Sprachen
+4. **Projekte** - Showcase meiner wichtigsten Projekte
+5. **Kontakt** - Kontaktformular und Social Links
 
 ##Installation & Setup
 
@@ -76,10 +76,10 @@ Portfolio/
 
 ##Meine Projekte
 
-- **[📝 To-Do Liste](https://github.com/4lexzs/To_do_Liste)** - Aufgabenverwaltung mit Local Storage
-- **[✈️ Reiseziel-Finder](https://github.com/4lexzs/Reiseziele)** - Interaktive Reise-Website
-- **[🏛️ Madrid Stadtführer](https://github.com/4lexzs/Madrid)** - Digitaler Stadtführer
-- **[💼 Portfolio Website](https://github.com/4lexzs/Portfolio)** - Diese Website
+- **[To-Do Liste](https://github.com/4lexzs/To_do_Liste)** - Aufgabenverwaltung mit Local Storage
+- **[Reiseziel-Finder](https://github.com/4lexzs/Reiseziele)** - Interaktive Reise-Website
+- **[Madrid Stadtführer](https://github.com/4lexzs/Madrid)** - Digitaler Stadtführer
+- **[Portfolio Website](https://github.com/4lexzs/Portfolio)** - Diese Website
 
 ##Design Features
 
@@ -97,21 +97,20 @@ Die Website ist vollständig responsive und funktioniert optimal auf:
 - 📱 **Tablet** (576px - 767px)
 - 📱 **Mobile** (bis 575px)
 
-## 🤝 Kontakt
+## Kontakt
 
-- **📧 Email:** [alexpau17062007@gmail.com](mailto:alexpau17062007@gmail.com)
-- **📱 Telefon:** 078 405 82 08
-- **🔗 LinkedIn:** [Edwin Alexander Paucar Vidal](https://www.linkedin.com/in/edwin-alexander-paucar-vidal-58a26a317/)
-- **🎵 Spotify:** [Mein Profil](https://open.spotify.com/user/hrjy7vknuomqyu6brasbu2gew)
-- **📍 Standort:** Sarmenstorf, Schweiz
+- **Email:** [alexpau17062007@gmail.com](mailto:alexpau17062007@gmail.com)
+- **Telefon:** 078 405 82 08
+- **LinkedIn:** [Edwin Alexander Paucar Vidal](https://www.linkedin.com/in/edwin-alexander-paucar-vidal-58a26a317/)
+- **Standort:** Sarmenstorf, Schweiz
 
-## 📈 Skills & Technologien
+## Skills & Technologien
 
-### 💻 Programmiersprachen
+### Programmiersprachen
 - HTML5, CSS3, JavaScript
 - Python, C#, Node.js
 
-### 🔧 Entwicklung
+### Entwicklung
 - Frontend & Backend Development
 - API-Integration
 - Responsive Webdesign

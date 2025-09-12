@@ -52,7 +52,7 @@ Portfolio/
 
 1. **Hero** - Willkommensbereich mit Glitch-Effekt
 2. **Über mich** - Persönliche Vorstellung und Hintergrund
-3. **🛠Skills** - Technische Fähigkeiten und Sprachen
+3. **Skills** - Technische Fähigkeiten und Sprachen
 4. **Projekte** - Showcase meiner wichtigsten Projekte
 5. **Kontakt** - Kontaktformular und Social Links
 
@@ -92,10 +92,10 @@ Portfolio/
 ## Responsive Design
 
 Die Website ist vollständig responsive und funktioniert optimal auf:
-- 🖥️ **Desktop** (1200px+)
-- 💻 **Laptop** (768px - 1199px)
-- 📱 **Tablet** (576px - 767px)
-- 📱 **Mobile** (bis 575px)
+- **Desktop** (1200px+)
+- **Laptop** (768px - 1199px)
+- **Tablet** (576px - 767px)
+- **Mobile** (bis 575px)
 
 ## Kontakt
 

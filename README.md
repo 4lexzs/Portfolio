@@ -2,15 +2,15 @@
 
 Eine moderne, responsive Portfolio-Website, die meine Fähigkeiten als Applikationsentwickler und Webentwickler präsentiert.
 
-##Live Demo
+## Live Demo
 
 [**Portfolio ansehen**](https://www.edwinpaucar.ch/)
 
-##Über das Projekt
+## Über das Projekt
 
 Dieses Portfolio zeigt meine Projekte, Fähigkeiten und Erfahrungen als Schüler der IMS Baden. Von der Schule aus bin ich Applikationsentwickler, aber am meisten habe ich Webentwicklung gerne. Die Website wurde komplett von mir entwickelt und zeigt moderne Webtechnologien im Einsatz.
 
-##Features
+## Features
 
 - **Modernes Design** - Dunkles Theme mit ansprechenden Animationen
 - **Responsive** - Optimiert für alle Geräte (Desktop, Tablet, Mobile)
@@ -19,7 +19,7 @@ Dieses Portfolio zeigt meine Projekte, Fähigkeiten und Erfahrungen als Schüler
 - **Custom Cursor** - Interaktiver Cursor für bessere UX
 - **Smooth Scrolling** - Sanfte Navigation zwischen Sektionen
 
-##Technologien
+## Technologien
 
 ### Frontend
 - **HTML5** - Semantische Struktur
@@ -33,7 +33,7 @@ Dieses Portfolio zeigt meine Projekte, Fähigkeiten und Erfahrungen als Schüler
 - **GitHub Pages** - Hosting
 - **Git** - Versionskontrolle
 
-##Projektstruktur
+## Projektstruktur
 
 ```
 Portfolio/
@@ -48,7 +48,7 @@ Portfolio/
 └── README.md           # Diese Datei
 ```
 
-##Sektionen
+## Sektionen
 
 1. **Hero** - Willkommensbereich mit Glitch-Effekt
 2. **Über mich** - Persönliche Vorstellung und Hintergrund
@@ -56,7 +56,7 @@ Portfolio/
 4. **Projekte** - Showcase meiner wichtigsten Projekte
 5. **Kontakt** - Kontaktformular und Social Links
 
-##Installation & Setup
+## Installation & Setup
 
 1. **Repository klonen**
    ```bash
@@ -74,14 +74,14 @@ Portfolio/
    http://localhost:8000
    ```
 
-##Meine Projekte
+## Meine Projekte
 
 - **[To-Do Liste](https://github.com/4lexzs/To_do_Liste)** - Aufgabenverwaltung mit Local Storage
 - **[Reiseziel-Finder](https://github.com/4lexzs/Reiseziele)** - Interaktive Reise-Website
 - **[Madrid Stadtführer](https://github.com/4lexzs/Madrid)** - Digitaler Stadtführer
 - **[Portfolio Website](https://github.com/4lexzs/Portfolio)** - Diese Website
 
-##Design Features
+## Design Features
 
 - **Dunkles Theme** - Moderne, augenfreundliche Farbpalette
 - **Glitch-Effekt** - Auf dem Haupttitel für visuellen Impact
@@ -89,7 +89,7 @@ Portfolio/
 - **Custom Cursor** - Einzigartiger Cursor mit Mix-Blend-Mode
 - **Gradient-Hintergründe** - Subtile Farbverläufe für Tiefe
 
-##Responsive Design
+## Responsive Design
 
 Die Website ist vollständig responsive und funktioniert optimal auf:
 - 🖥️ **Desktop** (1200px+)
@@ -115,21 +115,21 @@ Die Website ist vollständig responsive und funktioniert optimal auf:
 - API-Integration
 - Responsive Webdesign
 
-###Sprachen
+### Sprachen
 - **Deutsch** - Fließend
 - **Spanisch** - Muttersprache
 - **Englisch** - Gute Kenntnisse
 
-###Tools
+### Tools
 - Git & GitHub
 - SQL & Datenbankmanagement
 - VS Code
 
-##Lizenz
+## Lizenz
 
 Dieses Projekt ist unter der MIT-Lizenz veröffentlicht. Siehe die [LICENSE](LICENSE) Datei für Details.
 
-##Danksagungen
+## Danksagungen
 
 - **IMS Baden** - Für die Ausbildung und Unterstützung
 - **FontAwesome** - Für die Icons
